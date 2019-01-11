@@ -4,9 +4,6 @@ import './App.css';
 import ImagePreviewTable from './components/ImagePreviewTable';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
   
   render() {
     return (
@@ -25,6 +22,7 @@ class App extends Component {
             Learn React
           </a>
         </header> */}
+
         <ImagePreviewTable />
       </div>
     );
