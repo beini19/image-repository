@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 // Reference: https://daveceddia.com/open-modal-in-react/
 
 class ImageModal extends Component {
@@ -36,7 +36,7 @@ class ImageModal extends Component {
                     <h1>asdfkjh</h1>
                     <div className="footer">
                         <button onClick={this.props.onClose}>
-                            Close
+                        Close
                         </button>
                     </div>
                 </div>
@@ -44,6 +44,12 @@ class ImageModal extends Component {
         );
     }
 }
+
+ImageModal.propTypes = {
+    onClose: PropTypes.func.isRequired,
+    show: PropTypes.bool,
+    children: PropTypes.node
+};
 
 export default ImageModal;
 

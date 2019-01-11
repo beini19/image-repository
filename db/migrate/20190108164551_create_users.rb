@@ -1,6 +1,9 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
+  # re-create table from scratch
   def change
-    create_table :users do |t|
+    # set _id column as primary key
+    create_table :users, :primary_key => :_id do |t|
+      t.string :_id
       t.integer :index
       t.string :guid
       t.string :name
@@ -11,7 +14,10 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :registered
       t.string :image_id
-      t.timestamps
+      t.timestamps      
     end
+
+    # remove auto-generated id column
+    remove_column :users, :id
   end
 end

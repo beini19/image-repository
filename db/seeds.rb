@@ -17,6 +17,7 @@ image_data = []
 json.each do |item|
     # user_info = item.user
     user_data = {
+        "_id": item["_id"],
         "index": item["index"],
         "guid": item["guid"],
         "name": item["user"]["name"],
@@ -31,7 +32,8 @@ json.each do |item|
         "picture": item["picture"],
         "likes": item["likes"],
         "comments": item["comments"],
-        "tags": item["tags"]
+        "tags": item["tags"],
+        "user_id": item["_id"]
     }
 
     User.create!(user_data)
