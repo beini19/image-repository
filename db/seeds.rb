@@ -28,14 +28,14 @@ json.each do |item|
         "address": item["user"]["address"],
         "registered": item["user"]["registered"]
     }
+    user_object = User.create!(user_data)
+
     image_data = {
         "picture": item["picture"],
         "likes": item["likes"],
         "comments": item["comments"],
         "tags": item["tags"],
-        "user_id": item["_id"]
+        "user_id" => user_object.id
     }
-
-    User.create!(user_data)
     Image.create!(image_data)
 end

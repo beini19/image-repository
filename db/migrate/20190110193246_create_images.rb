@@ -5,7 +5,7 @@ class CreateImages < ActiveRecord::Migration[5.2]
       t.integer :likes
       t.integer :comments
       t.string :tags, array: true, default: []
-      t.string :user_id   # foreign key
+      t.integer :user_id   # foreign key
       t.timestamps
     end
     add_foreign_key :images, :users
