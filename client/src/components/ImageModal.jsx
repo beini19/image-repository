@@ -6,40 +6,41 @@ class ImageModal extends Component {
     super(props);
     this.state = {
       isLoaded: false,
-      userData: "no data to display"
+      user_id: "",
+      image_id: "",
+      userData: {},
+      imageData: {}
     };
   }
-
   // runs after the component is rendered
   componentDidMount() {
-    fetch("http://localhost:3001/users")
+    console.log("fetching data")
+    fetch("http://localhost:3001/users/3",
+      { method: 'GET' }
+    )
       .then(res => res.json())
-      .then(
-        (result) => {
-          console.log("returning data")
-          this.setState({
-            isLoaded: true,
-            userData: "asfklj"
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+      .then(data => 
+        this.setState({userData: data.data})
+        )
+      .catch(err => console.log(err));
+    fetch("http://localhost:3001/content/3",
+      { method: 'GET' }
+    )
+      .then(res => res.json())
+      .then(data => 
+        this.setState({imageData: data.data})
+        )
+      .catch(err => console.log(err));
   }
 
   render() {
     console.log("rendering modal")
-    console.log(this.props.userData)
     return (
       <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog model-dialog-centered modal-xl" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 className="modal-title" id="exampleModalLabel">Image Details</h5>
               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -48,11 +49,15 @@ class ImageModal extends Component {
               <div className="container-fluid">
                 <div className="row">
                   <div className="col-md-6">
-                    <Image src="https://via.placeholder.com/500"/>
+                    <Image src={this.state.imageData.picture}/>
                   </div>
                   <div className="col-md-6">
                     User Information
-                    {this.props.userData}
+                    <p>{JSON.stringify(this.state.userData.data)}</p>
+                    <h5>{this.state.userData.name}</h5>
+                    <p>Likes: {this.state.imageData.likes}</p>
+                    <p>Comments: {this.state.imageData.comments}</p>
+                    <p>Tags: {JSON.stringify(this.state.imageData.tags)}</p>
                   </div>
                 </div>
               </div>
