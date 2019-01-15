@@ -1,5 +1,7 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import contentHubApp from './reducers'
+import thunk from 'redux-thunk'
+import composeWithDevTools from 'redux-devtools-extension'
 import {
     setUserId,
     setUserData,
@@ -14,7 +16,7 @@ states:
 - user id
 */
 
-const store = createStore(contentHubApp)
+const store = createStore(contentHubApp, applyMiddleware(thunk))
 
 // Log the initial state
 console.log(store.getState())
@@ -24,7 +26,7 @@ console.log(store.getState())
 const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
 // Sample dispatch (changes data in the store)
-store.dispatch(setUserId("3"))
+// store.dispatch(setUserId("3"))
 
 unsubscribe()
 

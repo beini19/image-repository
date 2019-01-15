@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import ImagePreviewTable from './components/ImagePreviewTable';
 import ImageModal from './components/ImageModal';
-import { Provider } from 'react-redux'
-import store from './store'
 
 class App extends Component {
   constructor(props) {
@@ -27,12 +25,10 @@ class App extends Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <div className="App">  
-          <ImageModal user_id="" image_id=""/>
-          <ImagePreviewTable />
-        </div>
-      </Provider>
+      <div className="App">  
+        <ImageModal/>
+        <ImagePreviewTable />
+      </div>
     );
   }
 }

@@ -7,30 +7,32 @@ import {
     SET_USER_DATA,
     SET_IMAGE_ID,
     SET_IMAGE_DATA
-  } from './../actions/actions.js'
+} from './../actions/actions.js'
 
 const initialState = {
-    id: "3",
-    data: []
+    userId: "3",
+    imageId: "3",
+    userData: [],
+    imageData: []
 }
 
 function contentHubApp(state = initialState, action) {
     switch (action.type) {
         case SET_USER_ID:
             return Object.assign({}, state, {
-                id: action.id
+                userId: action.id
             })
         case SET_USER_DATA:
             return Object.assign({}, state, {
-                data: action.data
+                userData: action.userData
             })
         case SET_IMAGE_ID:
             return Object.assign({}, state, {
-                id: action.id
+                imageId: action.id
             })
         case SET_IMAGE_DATA:
             return Object.assign({}, state, {
-                data: action.data
+                imageData: action.userData
             })
         default:
             return state
