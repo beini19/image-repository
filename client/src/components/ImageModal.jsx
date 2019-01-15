@@ -6,16 +6,17 @@ class ImageModal extends Component {
     super(props);
     this.state = {
       isLoaded: false,
-      user_id: "",
-      image_id: "",
+      // user_id: this.props.user_id,
+      user_id: "3",
+      image_id: "3",
       userData: {},
       imageData: {}
     };
   }
   // runs after the component is rendered
   componentDidMount() {
-    console.log("fetching data")
-    fetch("http://localhost:3001/users/3",
+    console.log("fetching data");
+    fetch("http://localhost:3001/users/" + this.state.user_id,
       { method: 'GET' }
     )
       .then(res => res.json())
@@ -23,7 +24,7 @@ class ImageModal extends Component {
         this.setState({userData: data.data})
         )
       .catch(err => console.log(err));
-    fetch("http://localhost:3001/content/3",
+    fetch("http://localhost:3001/content/" +  + this.state.image_id,
       { method: 'GET' }
     )
       .then(res => res.json())
@@ -49,15 +50,15 @@ class ImageModal extends Component {
               <div className="container-fluid">
                 <div className="row">
                   <div className="col-md-6">
-                    <Image src={this.state.imageData.picture}/>
+                    {/* <Image src={this.state.imageData.picture}/> */}
                   </div>
                   <div className="col-md-6">
                     User Information
-                    <p>{JSON.stringify(this.state.userData.data)}</p>
+                    {/* <p>{JSON.stringify(this.state.userData.data)}</p>
                     <h5>{this.state.userData.name}</h5>
                     <p>Likes: {this.state.imageData.likes}</p>
                     <p>Comments: {this.state.imageData.comments}</p>
-                    <p>Tags: {JSON.stringify(this.state.imageData.tags)}</p>
+                    <p>Tags: {JSON.stringify(this.state.imageData.tags)}</p> */}
                   </div>
                 </div>
               </div>

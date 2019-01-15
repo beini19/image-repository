@@ -6,10 +6,20 @@ class ImagePreviewTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageData: {}
+      imageData: [
+    {
+        picture: "https://via.placeholder.com/500",
+        user_id: "4",
+        image_id: "4"
+    },
+    {
+        picture: "https://via.placeholder.com/600",
+        user_id: "5",
+        image_id: "5"
+    }]
     };    
   }
-
+  
   componentWillMount() {
     // fetch all content
     fetch("http://localhost:3001/content",
@@ -28,9 +38,9 @@ class ImagePreviewTable extends Component {
         <h1> Content-Hub </h1>
         <table className="table">
           <tbody>
-            {/* {// note: map function can only be used on lists
+            {// note: map function can only be used on lists
               this.state.imageData.map((data) => (
-              <div image-id={data.id} user-id={data.user_id}>
+            //   <div image-id={data.id} user-id={data.user_id}>
                 <tr className="row">
                   <td className="col-md-4" data-toggle="modal" data-target="#exampleModal">
                     {               
@@ -42,8 +52,8 @@ class ImagePreviewTable extends Component {
                     }
                   </td>
                 </tr>
-              </div>
-            ))} */}
+            //   </div>
+            ))}
           </tbody>
         </table>
       </div>
