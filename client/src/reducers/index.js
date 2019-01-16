@@ -3,36 +3,27 @@
 // A reducer should not mutate its arguments or have any side effects
 
 import {
-    SET_USER_ID,
     SET_USER_DATA,
-    SET_IMAGE_ID,
     SET_IMAGE_DATA
 } from './../actions/actions.js'
 
 const initialState = {
-    userId: "3",
-    imageId: "3",
     userData: [],
     imageData: []
 }
 
 function contentHubApp(state = initialState, action) {
+    console.log("action type: " + action.type);
     switch (action.type) {
-        case SET_USER_ID:
-            return Object.assign({}, state, {
-                userId: action.id
-            })
         case SET_USER_DATA:
+            console.log("set user data: ");
+            console.log(action.payload);
             return Object.assign({}, state, {
-                userData: action.userData
-            })
-        case SET_IMAGE_ID:
-            return Object.assign({}, state, {
-                imageId: action.id
+                userData: action.payload
             })
         case SET_IMAGE_DATA:
             return Object.assign({}, state, {
-                imageData: action.userData
+                imageData: action.payload
             })
         default:
             return state

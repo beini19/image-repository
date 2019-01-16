@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Image from './Image';
-import ImageModal from './ImageModal';
 import {
   setUserData,
   setImageData,
 } from '../actions/actions'
-import store from '../store'
 
 class ImagePreviewTable extends Component {
   constructor(props) {
@@ -15,29 +13,7 @@ class ImagePreviewTable extends Component {
     this.state = {
       imageData: []
     };    
-    // const mapStateToProps = state => {
-    //   return { 
-    //     userId: state.userId,
-    //     imageId: state.imageId
-    //   };
-    // };
   }
-  
-  // need to connect each component that uses an action
-  // component calls action
-  // dispatch occurs in action
-  // setId = (id, userId) => {
-  //   console.log("image clicked")
-  //   // dispatch (data is not being saved in store)
-  //   this.props.dispatch(setUserId(userId));
-  //   store.dispatch(setImageId(id));
-  //   console.log("setting state to " + userId)
-  //   // console.log(store.getState().userId);
-  //   // this.setState({ 
-  //   //   userId: userId,
-  //   //   imageId: id
-  //   // });
-  // }
   
   componentWillMount() {
     // fetch all content
@@ -61,7 +37,8 @@ class ImagePreviewTable extends Component {
         {/* <div className="col-md-10"> */}
           {// note: map function can only be used on lists
             this.state.imageData.map((data) => (
-              <div className="col-md-2" data-toggle="modal" data-target="#exampleModal" image-id={data.id} user-id={data.user_id} onClick={() => {this.props.setUserData(data.user_id); this.props.setImageData(data.id)}}>
+              <div className="col-md-2" data-toggle="modal" data-target="#exampleModal" image-id={data.id} user-id={data.user_id} 
+                    onClick={() => {this.props.setUserData(data.user_id); this.props.setImageData(data.id)}}>
                 {               
                   <Image
                   src={data.picture}
@@ -77,13 +54,6 @@ class ImagePreviewTable extends Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    userData: state.userData,
-    imageData: state.imageData
-  };
-};
 
 function mapDispatchToProps(dispatch) {
   return {

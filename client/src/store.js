@@ -1,13 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import contentHubApp from './reducers'
 import thunk from 'redux-thunk'
-import composeWithDevTools from 'redux-devtools-extension'
-import {
-    setUserId,
-    setUserData,
-    setImageId,
-    setImageData
-  } from './actions/actions'
+
 /* 
 states:
 - image data
@@ -29,6 +23,5 @@ const unsubscribe = store.subscribe(() => console.log(store.getState()))
 // store.dispatch(setUserId("3"))
 
 unsubscribe()
-
 
 export default store
