@@ -4,12 +4,14 @@
 
 import {
     SET_USER_DATA,
-    SET_IMAGE_DATA
+    SET_IMAGE_DATA,
+    SET_ALL_IMAGE_DATA
 } from './../actions/actions.js'
 
 const initialState = {
     userData: [],
-    imageData: []
+    imageData: [],
+    allImageData: []
 }
 
 function contentHubApp(state = initialState, action) {
@@ -24,6 +26,11 @@ function contentHubApp(state = initialState, action) {
         case SET_IMAGE_DATA:
             return Object.assign({}, state, {
                 imageData: action.payload
+            })
+        case SET_ALL_IMAGE_DATA:
+            // console.log(action.payload);
+            return Object.assign({}, state, {
+                allImageData: action.payload
             })
         default:
             return state

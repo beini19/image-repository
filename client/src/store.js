@@ -6,8 +6,7 @@ import thunk from 'redux-thunk'
 states:
 - image data
 - user data
-- image id
-- user id
+- all iamge data
 */
 
 const store = createStore(contentHubApp, applyMiddleware(thunk))
