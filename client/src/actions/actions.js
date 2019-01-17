@@ -1,4 +1,4 @@
-// actions are used to send data to the store using dispatch
+// Actions are used to send data to the store using dispatch
 // actionCreators are functions that create and return actions
 
 // Define action types

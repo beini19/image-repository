@@ -50,6 +50,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(ImageModal);
-
-// export default ImageModal;
-

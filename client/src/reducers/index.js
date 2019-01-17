@@ -28,7 +28,6 @@ function contentHubApp(state = initialState, action) {
                 imageData: action.payload
             })
         case SET_ALL_IMAGE_DATA:
-            // console.log(action.payload);
             return Object.assign({}, state, {
                 allImageData: action.payload
             })
