@@ -50,7 +50,7 @@ CREATE DATABASE image_repository_test;
 ```
 
 ## Starting the application locally
-In the root director, run:
+In the root directory, run:
 ```
 rails server -p 3001
 ```
