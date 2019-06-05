@@ -10,35 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_10_193246) do
+ActiveRecord::Schema.define(version: 2019_06_03_042815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "images", force: :cascade do |t|
-    t.string "picture"
-    t.integer "likes"
-    t.integer "comments"
-    t.string "tags", default: [], array: true
+    t.string "url"
+    t.integer "inventory"
+    t.decimal "price"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "_id"
-    t.integer "index"
-    t.string "guid"
-    t.string "name"
-    t.string "gender"
-    t.integer "age"
-    t.string "email"
-    t.string "phone"
-    t.string "address"
-    t.string "registered"
-    t.string "image_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "user_type"
+    t.string "token"
   end
 
   add_foreign_key "images", "users"
