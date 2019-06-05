@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "users/:id", to: "user#show"
-  get "content", to: "image#index"
-  get "content/:id", to: "image#show"
+  resources :user, only: %i[index show create]
+  resources :image, only: %i[index show create]
+
+  post "image/batch", to: "image#create_batch"
+  get "inventory/:id", to: "image#get_inventory"
+  post "inventory/:id", to: "image#set_inventory"
+  get "price/:id", to: "image#get_price"
+  post "price/:id", to: "image#set_price"
 end
