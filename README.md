@@ -41,6 +41,7 @@ npm install
 ```
 
 ### Setting up PostgreSQL
+If you're setting up the application for the first time, run the following instructions to populate the database:
 ```
 psql -U postgres
 
@@ -59,6 +60,4 @@ npm start
 ```
 
 This starts the React client on port 3000 and the Rails server on port 3001.
-
-If you're setting up the application for the first time, also run the following instructions to populate the database:
 
